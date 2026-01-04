@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterPersonRoutes(router *gin.Engine, personController api.PersonController) {
-	router.GET("/persons", personController.GetAll)
-	router.GET("/persons/:id", personController.GetByID)
-	router.POST("/persons", personController.Create)
-	router.PUT("/persons/:id", personController.Update)
-	router.DELETE("/persons/:id", personController.Delete)
+func RegisterPersonRoutes(r gin.IRoutes, personController api.PersonController) {
+	r.GET("/persons", personController.GetAll)
+	r.GET("/persons/:id", personController.GetByID)
+	r.POST("/persons", personController.Create)
+	r.PUT("/persons/:id", personController.Update)
+	r.DELETE("/persons/:id", personController.Delete)
 }
